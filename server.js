@@ -26,6 +26,7 @@ io.sockets.on("connection",function(socket)
     socket.leave(socket.room);
     socket.room = targetRoom;
     socket.join(socket.room);
+		console.log(usr+" moved to "+socket.room);
     if (population[socket.room] >= 2)
     {
       //
@@ -38,6 +39,13 @@ io.sockets.on("connection",function(socket)
     //
     io.sockets.in(socket.room).emit("chat",{username: data.username, message: data.message});
   });
+
+	socket.on("disconnect",function()
+	{
+		io.sockets.in(socket.room).emit("chat",{username:"Server", message: socket.username+" has left."});
+		socket.leave(socket.room);
+		console.log(socket.username+" has left.");
+	})
 
 });
 
