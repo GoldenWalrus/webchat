@@ -33,9 +33,10 @@ function readyChat(usr)
 
   input.onkeydown = function(ev)
   {
-    if (ev.keycode == 13 && chatfocus == true)
+    if (ev.keyCode == 13 && chatfocus == true)
     {
       socket.emit("message",{username:usr, message:input.value});
+			input.value = "";
     }
   }
 }

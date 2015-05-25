@@ -13,10 +13,10 @@ include "utils.php";
 <h1>ChatUp</h1>
 <tr>
 <p>Chat online anonymously for free</p>
-<form id='getScreenname' method='POST' action="room.php">
+<form id='getScreenname' method='POST' action="room.php" onsubmit="return validateScreenname();">
 <label for='screenname'>
-<input name='screenname' id='screenname'>
-<button class="btn btn-default">Chat</button>
+<input name='screenname' id='screenname' placeholder="Screen Name">
+<button class="btn btn-default">Start Chatting</button>
 </form>
 </div>
 </body>
