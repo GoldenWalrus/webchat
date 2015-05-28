@@ -14,6 +14,9 @@ function getXMLHttpObject()
 function readyChat(usr)
 {
   // function will be triggered on page load with the username provided from the post data
+	var status = document.getElementById("status");
+	status.innerHTML = "Online";
+	status.setAttribute("class","online");
   var input = document.getElementById("chat-input");
   var output = document.getElementById("chat-output");
   var chatfocus = false;

@@ -27,6 +27,7 @@ io.sockets.on("connection",function(socket)
     socket.room = targetRoom;
     socket.join(socket.room);
 		console.log(usr+" moved to "+socket.room);
+		population[socket.room]++;
     if (population[socket.room] >= 2)
     {
       //
