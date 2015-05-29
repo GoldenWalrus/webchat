@@ -33,6 +33,7 @@ io.sockets.on("connection",function(socket)
       //
       targetRoom++;
     }
+		socket.emit("chat",{username:"Server", message: "Welcome! You are now connected!"})
   });
 
   socket.on("message",function(data)

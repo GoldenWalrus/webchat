@@ -14,6 +14,7 @@ function getXMLHttpObject()
 function readyChat(usr)
 {
   // function will be triggered on page load with the username provided from the post data
+	document.getElementById("connect").disabled = true;
 	var status = document.getElementById("status");
 	status.innerHTML = "Online";
 	status.setAttribute("class","online");
@@ -31,7 +32,7 @@ function readyChat(usr)
   socket.on("chat",function(data)
   {
     //append data.msg to chat with data.usrname
-    output.innerHTML += "<p><b>"+data.username+"</b>: "+data.message+"</p>";
+    output.innerHTML += "<tr><td><b>"+data.username+"</b>: "+data.message+"</td></tr>";
   });
 
   input.onkeydown = function(ev)
@@ -42,4 +43,9 @@ function readyChat(usr)
 			input.value = "";
     }
   }
+	document.getElementById("send").onclick = function(ev)
+	{
+		socket.emit("message",{username:usr, message:input.value});
+		input.value = "";
+	}
 }

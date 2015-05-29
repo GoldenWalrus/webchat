@@ -15,14 +15,22 @@ include "utils.php";
 <body>
 <div class='container'>
 <?php
-echo "<p>Now chatting as ".$username."&nbsp<button class='btn btn-default' onclick='readyChat(\"".$username."\")'>Connect</button></p>";
+echo "<p>Now chatting as ".$username."&nbsp";
 ?>
 <div class="panel panel-default">
-	<div class="panel-heading">
-		<h4 id='status' class='offline'>Offline</h4>
+	<div class="panel-heading clearfix">
+	<div class="pull-left">
+	<h4 id='status' class='offline'>Offline</h4>
 	</div>
-	<div id='chat-output'></div>
-	<input id="chat-input" class='form-control' placeholder="Your message here"></input>
+	<div class="btn-group pull-right">
+	<?php echo "<button id='connect' class='btn btn-primary btn-sm' onclick='readyChat(\"".$username."\")'>Connect</button></p>"; ?>
+	</div>
+	</div>
+	<table id='chat-output'></table>
+	<div class="panel-footer clearfix">
+	<textarea id="chat-input" class="form-control clearfix" placeholder="Your message here"></textarea>
+	<button id="send" class="btn btn-primary btn-small">Send</button>
+	</div>
 </div>
 <p><a href="portal.php">Back</a></p>
 </div>
