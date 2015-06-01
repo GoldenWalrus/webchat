@@ -6,6 +6,9 @@ include "utils.php";
 <title>ChatUp: Chat Online</title>
 </head>
 <body>
+<div class="spacedout"></div>
+<div class="container">
+<div class="jumbotron">
 <?php
 //include some things like navbar(?) possibly here
 ?>
@@ -18,5 +21,7 @@ include "utils.php";
 <input name='screenname' id='screenname' placeholder="Screen Name">
 <button class="btn btn-default">Start Chatting</button>
 </form>
+</div>
+</div>
 </div>
 </body>

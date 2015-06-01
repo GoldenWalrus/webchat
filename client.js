@@ -32,7 +32,7 @@ function readyChat(usr)
   socket.on("chat",function(data)
   {
     //append data.msg to chat with data.usrname
-    output.innerHTML += "<tr><td><b>"+data.username+"</b>: "+data.message+"</td></tr>";
+    output.innerHTML += "<tr><td><b>"+data.username+"</b><br> "+data.message+"</td></tr>";
   });
 
   input.onkeydown = function(ev)

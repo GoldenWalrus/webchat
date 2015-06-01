@@ -6,6 +6,6 @@
 <!--bootstrap minified css and js files-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!--external javascript-->
-<script src="chat.js"></script>
+<script src="chat.js" defer></script>
 <!--external css-->
-<style src="chat.css"></style>
+<link rel="stylesheet" href="chat.css">
