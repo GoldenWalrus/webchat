@@ -10,7 +10,7 @@ include "utils.php";
 ?>
 <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
 <script src="client.js"></script>
-<title>ChatUp : Chat Room</title>
+<title>Chat Room</title>
 </head>
 <body>
 <div class="spacedout"></div>
