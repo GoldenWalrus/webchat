@@ -44,6 +44,7 @@ io.sockets.on("connection",function(socket)
 
 	socket.on("disconnect",function()
 	{
+    targetRoom = socket.room; //if multiple people leave, this won't work as well
 		io.sockets.in(socket.room).emit("chat",{username:"Server", message: socket.username+" has left."});
 		socket.leave(socket.room);
 		console.log(socket.username+" has left.");
