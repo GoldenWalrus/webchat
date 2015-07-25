@@ -1,10 +1,11 @@
 //globals for rooms
 //var rooms = ["Lobby"];
-var targetRoom = 0;
+var roomsAvail = [];
 var population = [];
 for (var i = 0; i < 100; i++)
 {
   population[i] = 0;
+  roomsAvail.push(i);
 }
 
 //set up app
@@ -24,14 +25,15 @@ io.sockets.on("connection",function(socket)
     socket.join(socket.room);
     console.log(usr+" has been added to lobby");
     socket.leave(socket.room);
-    socket.room = targetRoom;
+    socket.room = roomsAvail[0];
     socket.join(socket.room);
 		console.log(usr+" moved to "+socket.room);
 		population[socket.room]++;
     if (population[socket.room] >= 2)
     {
       //
-      targetRoom++;
+      x = roomsAvail.shift();
+      console.log("Overflow in room "+ x);
     }
 		socket.emit("chat",{username:"Server", message: "Welcome! You are now connected!"})
   });
@@ -44,7 +46,7 @@ io.sockets.on("connection",function(socket)
 
 	socket.on("disconnect",function()
 	{
-    targetRoom = socket.room; //if multiple people leave, this won't work as well
+    roomsAvail.push(socket.room);
 		io.sockets.in(socket.room).emit("chat",{username:"Server", message: socket.username+" has left."});
 		socket.leave(socket.room);
 		console.log(socket.username+" has left.");
